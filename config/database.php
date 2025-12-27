@@ -43,7 +43,7 @@ return [
             'transaction_mode' => 'DEFERRED',
         ],
 
-        'mysql' => [
+        'central' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -61,6 +61,15 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ],
+
+        'tenant' => [
+            'driver' => 'mysql',
+            'database' => null, 
+            'username' => env('DB_USERNAME', 'forge'), 
+            'password' => env('DB_PASSWORD', ''),
+            'prefix' => '',
+            'prefix_indexes' => true,
         ],
 
         'mariadb' => [
