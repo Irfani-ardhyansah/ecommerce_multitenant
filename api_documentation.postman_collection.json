@@ -1,0 +1,760 @@
+{
+	"info": {
+		"_postman_id": "a6082d5d-4258-4fd9-befc-670a37334bff",
+		"name": "Ecommerce Tenant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10214268"
+	},
+	"item": [
+		{
+			"name": "Tenant",
+			"item": [
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/products",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "detail",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/products/4",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "9|AJs8rAbmMp0rUYoMIjFaUZnAid2tIt7ICqWGftpG4b218450",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "price",
+											"value": "2000",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "product coba",
+											"type": "text"
+										},
+										{
+											"key": "stock",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "just desc",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/products",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "9|AJs8rAbmMp0rUYoMIjFaUZnAid2tIt7ICqWGftpG4b218450",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "price",
+											"value": "2002",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "product coba",
+											"type": "text"
+										},
+										{
+											"key": "stock",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "just desc",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/products/4",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "9|AJs8rAbmMp0rUYoMIjFaUZnAid2tIt7ICqWGftpG4b218450",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "price",
+											"value": "2002",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "product coba",
+											"type": "text"
+										},
+										{
+											"key": "stock",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "just desc",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/products/4",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cart",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "11|mgRM1nN7sC8hapmrwzOZL1PK46AkohaLmZUvO8Pj0b6956e4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/cart",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "11|mgRM1nN7sC8hapmrwzOZL1PK46AkohaLmZUvO8Pj0b6956e4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "product_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/cart",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "11|mgRM1nN7sC8hapmrwzOZL1PK46AkohaLmZUvO8Pj0b6956e4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "product_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "quantity",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/cart/1",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"cart",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "11|mgRM1nN7sC8hapmrwzOZL1PK46AkohaLmZUvO8Pj0b6956e4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "product_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "quantity",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/checkout",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"checkout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "11|mgRM1nN7sC8hapmrwzOZL1PK46AkohaLmZUvO8Pj0b6956e4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "product_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "quantity",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/cart/1",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"cart",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "user@tenant1.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://tenant1.localhost:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"tenant1",
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Central",
+			"item": [
+				{
+					"name": "Tenant",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "3|rbpXJvn3ntyAdhKaiibnAfwiVvo8SCnEip4vLIyG5f61d83f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8000/api/central/tenants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"central",
+										"tenants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "3|rbpXJvn3ntyAdhKaiibnAfwiVvo8SCnEip4vLIyG5f61d83f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "tenant3",
+											"type": "text"
+										},
+										{
+											"key": "domain",
+											"value": "tenant3",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user@tenant3.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/central/tenants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"central",
+										"tenants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "3|rbpXJvn3ntyAdhKaiibnAfwiVvo8SCnEip4vLIyG5f61d83f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "tenant3",
+											"type": "text"
+										},
+										{
+											"key": "domain",
+											"value": "tenant3",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "user@tenant3.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/central/tenants/tenant3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"central",
+										"tenants",
+										"tenant3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "superadmin@central.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/central/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"central",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

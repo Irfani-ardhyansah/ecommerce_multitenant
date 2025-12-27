@@ -1,59 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Multi-Tenant E-Commerce API (Laravel 11)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A robust Multi-Database Tenancy backend built with Laravel 11 and Stancl/Tenancy. This project provides a complete infrastructure for SaaS e-commerce with isolated databases for each store (tenant).
 
-## About Laravel
+## 🚀 Key Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Multi-Database Tenancy**: Automatic database creation and isolation for each tenant.
+- **Central Admin (Landlord)**: Full CRUD for managing Tenants (Create, Read, Update, Delete stores).
+- **Tenant Admin (Store Owner)**: Full CRUD for managing products within their specific store.
+- **Tenant Customer**: Shopping cart features with automatic stock reservation logic.
+- **Role-Based Authorization**: Distinct access levels for 'Admin' and 'User' roles.
+- **API Documentation**: Automated Swagger/OpenAPI 3.0 documentation.
+- **Automated Testing**: Integrated Unit & Feature tests with environment isolation.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠 Installation Guide
 
-## Learning Laravel
+Follow these steps to set up the project on your local machine.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 1. Configure Local Domains
+Add the tenant domains to your local hosts file to enable subdomain routing.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* **Mac/Linux**: `sudo nano /etc/hosts`
+* **Windows**: Run Notepad as Admin -> `C:\Windows\System32\drivers\etc\hosts`
 
-## Laravel Sponsors
+Add the following lines:
+```text
+127.0.0.1   localhost
+127.0.0.1   tenant1.localhost
+127.0.0.1   tenant2.localhost
+```
+### 2. Install Dependencies
+```text
+composer install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 3. Database Preparation
 
-### Premium Partners
+Create two empty MySQL databases:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+central_db (Development)
 
-## Contributing
+central_test (Testing)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Environment Configuration
 
-## Code of Conduct
+#### A. Development (.env)
+```text
+cp .env.example .env
+```
+Update your credentials:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+DB_DATABASE=central_db
 
-## Security Vulnerabilities
+TENANCY_DATABASE_PREFIX=tenant
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### B. Testing (.env.testing)
+```text
+cp .env .env.testing
+```
 
-## License
+Update for isolation:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+APP_ENV=testing
+
+DB_DATABASE=central_test
+
+TENANCY_DATABASE_PREFIX=test_tenant_
+
+### 5. Initialize Application
+```text
+php artisan key:generate
+php artisan migrate:fresh --seed
+```
+
+## 📖 API Documentation
+```text
+./api_documentation.postman_collection.json
+```
+
+## 🧪 Running Tests
+```text
+php artisan test --env=testing
+```
