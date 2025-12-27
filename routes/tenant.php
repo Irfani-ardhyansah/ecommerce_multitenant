@@ -26,7 +26,9 @@ Route::middleware([
         Route::middleware('role:user')->group(function () {
             Route::get('/cart', [CartController::class, 'index']);
             Route::post('/cart', [CartController::class, 'addToCart']);
-            Route::post('/checkout', [CartController::class, 'checkout']);
+            Route::put('/cart/{itemId}', [CartController::class, 'update']);
+            Route::put('/checkout', [CartController::class, 'checkout']);
+            Route::delete('/cart/{itemId}', [CartController::class, 'destroy']);
         });
 
         Route::middleware('role:admin')->group(function () {
